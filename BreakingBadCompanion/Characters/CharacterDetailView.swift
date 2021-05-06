@@ -22,6 +22,7 @@ struct CharacterDetailView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .transition(.opacity)
             }
             HStack {
                 VStack(alignment: .leading) {
@@ -37,6 +38,7 @@ struct CharacterDetailView: View {
             Spacer()
         }
         .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(character.name)
         .onAppear {
             imageLoader.load()
         }

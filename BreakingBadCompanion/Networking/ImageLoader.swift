@@ -5,7 +5,7 @@
 //  Created by Pablo Cornejo on 2/27/21.
 //
 
-import UIKit
+import SwiftUI
 import Combine
 
 class ImageLoader: ObservableObject {
@@ -29,7 +29,11 @@ class ImageLoader: ObservableObject {
             .map(UIImage.init)
             .replaceError(with: nil)
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] in self?.image = $0 }
+            .sink { [weak self] image in
+                withAnimation {
+                    self?.image = image
+                }
+            }
     }
     
     func cancel() {
