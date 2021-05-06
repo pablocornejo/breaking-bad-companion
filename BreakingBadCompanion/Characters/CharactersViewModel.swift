@@ -30,7 +30,8 @@ class CharactersViewModel: ObservableObject {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        network.get(from: url, with: decoder)
+        network
+            .getDecodable(from: url, with: decoder)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 print("***", completion)

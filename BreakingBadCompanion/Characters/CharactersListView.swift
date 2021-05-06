@@ -15,13 +15,15 @@ struct CharactersListView: View {
         NavigationView {
             VStack {
                 if showingFilter {
-                    Picker(selection: $viewModel.selectedSeason, label: Text("Season")) {
-                        Text("All").tag(0)
-                        ForEach(1..<6) {
-                            Text("\($0)").tag($0)
+                    HStack {
+                        Text("Season").font(.caption)
+                        Picker(selection: $viewModel.selectedSeason, label: Text("Season")) {
+                            ForEach(0..<6) { index in
+                                Text(index == 0 ? "All" : "\(index)").tag(index)
+                            }
                         }
+                        .pickerStyle(SegmentedPickerStyle())
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                     .padding()
                 }
                 List(viewModel.characters) { character in
@@ -43,11 +45,11 @@ struct CharactersListView: View {
     
     private var filterButton: some View {
         Button {
-            withAnimation {
-                showingFilter.toggle()
-            }
+            withAnimation { showingFilter.toggle() }
         } label: {
-            Image(systemName: "line.horizontal.3.decrease.circle")
+            Image(systemName: showingFilter ?
+                    "line.horizontal.3.decrease.circle.fill" :
+                    "line.horizontal.3.decrease.circle")
         }
     }
 }

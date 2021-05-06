@@ -16,7 +16,7 @@ struct NetworkManager {
     let session: URLSession = .shared
     var httpHeaders: [String: String]?
     
-    func get<T: Decodable>(from url: URL, with decoder: JSONDecoder = .init()) -> AnyPublisher<T, Error> {
+    func getDecodable<T: Decodable>(from url: URL, with decoder: JSONDecoder = .init()) -> AnyPublisher<T, Error> {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
         request.allHTTPHeaderFields = httpHeaders
