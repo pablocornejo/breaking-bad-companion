@@ -22,7 +22,6 @@ struct CharacterDetailView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-//                    .edgesIgnoringSafeArea(.top)
             }
             HStack {
                 VStack(alignment: .leading) {
