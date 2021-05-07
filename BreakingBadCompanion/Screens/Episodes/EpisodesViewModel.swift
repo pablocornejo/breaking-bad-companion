@@ -12,11 +12,13 @@ class EpisodesViewModel: ObservableObject {
     private var allEpisodes: [Episode] = [] {
         didSet {
             episodes = allEpisodes
-            seasons = makeSeasons(from: episodes)
+            seasons = makeSeasons(from: episodes, for: currentSeries)
         }
     }
     @Published var episodes: [Episode] = []
     @Published var seasons: [Season] = []
+    
+    private let currentSeries: String = "Breaking Bad"
     
     private let network: NetworkManager = .init()
     private var cancellables: Set<AnyCancellable> = .init()
@@ -41,15 +43,14 @@ class EpisodesViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    private func makeSeasons(from episodes: [Episode]) -> [Season] {
+    private func makeSeasons(from episodes: [Episode], for series: String) -> [Season] {
         var seasons: [Season] = []
         
-        for episode in episodes {
-            let adjustedSeason = episode.season.trimmingCharacters(in: .whitespaces)
-            if let existingSeason = seasons.first(where: { adjustedSeason == $0.season }) {
+        for episode in episodes where episode.series == series {
+            if let existingSeason = seasons.first(where: { episode.season == $0.season }) {
                 existingSeason.episodes.append(episode)
             } else {
-                seasons.append(Season(season: adjustedSeason, episodes: [episode]))
+                seasons.append(Season(season: episode.season, episodes: [episode]))
             }
         }
         
