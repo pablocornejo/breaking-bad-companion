@@ -13,9 +13,12 @@ struct EpisodeDetail: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(episode.title).font(.headline)
+            Text("Season \(episode.season), episode \(episode.episode)")
             Text("Aired on \(episode.airDate)")
             Text(episode.characters.joined(separator: ", "))
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(episode.title)
     }
 }
 

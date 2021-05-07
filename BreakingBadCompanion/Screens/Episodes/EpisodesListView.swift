@@ -17,7 +17,13 @@ struct EpisodesListView: View {
                     Section(header: Text("Season " + season.season)) {
                         ForEach(season.episodes) { episode in
                             NavigationLink(destination: EpisodeDetail(episode: episode)) {
-                                Text(episode.title)
+                                HStack {
+                                    Text("S\(episode.season)E\(episode.episode)")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    
+                                    Text(episode.title)
+                                }
                             }
                         }
                     }
