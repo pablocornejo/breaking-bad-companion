@@ -16,6 +16,7 @@
 		CFB0B91A25EAB57600056B2B /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0B91925EAB57600056B2B /* CharactersViewModel.swift */; };
 		CFE64A7825EACCDF00E06C9B /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE64A7725EACCDF00E06C9B /* CharacterDetailView.swift */; };
 		CFE64A7B25EACF4300E06C9B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE64A7A25EACF4300E06C9B /* ImageLoader.swift */; };
+		CFFFA2A62644CD1C001D6049 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFFA2A52644CD1C001D6049 /* Episode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CFB0B91925EAB57600056B2B /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		CFE64A7725EACCDF00E06C9B /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		CFE64A7A25EACF4300E06C9B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		CFFFA2A52644CD1C001D6049 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				CFB0B91525EAB45F00056B2B /* Character.swift */,
+				CFFFA2A52644CD1C001D6049 /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				CFB0B91125EAB35C00056B2B /* NetworkManager.swift in Sources */,
 				CFB0B90125EAB32100056B2B /* CharactersListView.swift in Sources */,
 				CFB0B8FF25EAB32100056B2B /* BreakingBadCompanionApp.swift in Sources */,
+				CFFFA2A62644CD1C001D6049 /* Episode.swift in Sources */,
 				CFE64A7825EACCDF00E06C9B /* CharacterDetailView.swift in Sources */,
 				CFB0B91625EAB45F00056B2B /* Character.swift in Sources */,
 				CFB0B91A25EAB57600056B2B /* CharactersViewModel.swift in Sources */,
