@@ -20,6 +20,7 @@
 		CFFFA2A22644CBC5001D6049 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFFA2A12644CBC5001D6049 /* ContentView.swift */; };
 		CFFFA2A42644CCED001D6049 /* EpisodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFFA2A32644CCED001D6049 /* EpisodesViewModel.swift */; };
 		CFFFA2A62644CD1C001D6049 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFFA2A52644CD1C001D6049 /* Episode.swift */; };
+		CFFFA2A82645675A001D6049 /* EpisodeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFFA2A72645675A001D6049 /* EpisodeDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		CFFFA2A12644CBC5001D6049 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CFFFA2A32644CCED001D6049 /* EpisodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewModel.swift; sourceTree = "<group>"; };
 		CFFFA2A52644CD1C001D6049 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		CFFFA2A72645675A001D6049 /* EpisodeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CFFFA29E2644CB98001D6049 /* EpisodesListView.swift */,
+				CFFFA2A72645675A001D6049 /* EpisodeDetail.swift */,
 				CFFFA2A32644CCED001D6049 /* EpisodesViewModel.swift */,
 			);
 			path = Episodes;
@@ -211,6 +214,7 @@
 				CFB0B8FF25EAB32100056B2B /* BreakingBadCompanionApp.swift in Sources */,
 				CFFFA29F2644CB98001D6049 /* EpisodesListView.swift in Sources */,
 				CFFFA2A62644CD1C001D6049 /* Episode.swift in Sources */,
+				CFFFA2A82645675A001D6049 /* EpisodeDetail.swift in Sources */,
 				CFFFA2A22644CBC5001D6049 /* ContentView.swift in Sources */,
 				CFFFA2A42644CCED001D6049 /* EpisodesViewModel.swift in Sources */,
 				CFE64A7825EACCDF00E06C9B /* CharacterDetailView.swift in Sources */,

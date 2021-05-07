@@ -16,7 +16,9 @@ struct EpisodesListView: View {
                 ForEach(viewModel.seasons) { season in
                     Section(header: Text("Season " + season.season)) {
                         ForEach(season.episodes) { episode in
-                            Text(episode.title)
+                            NavigationLink(destination: EpisodeDetail(episode: episode)) {
+                                Text(episode.title)
+                            }
                         }
                     }
                 }
