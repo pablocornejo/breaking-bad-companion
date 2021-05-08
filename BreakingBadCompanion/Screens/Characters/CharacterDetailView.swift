@@ -9,12 +9,8 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     let character: Character
-    @ObservedObject private var imageLoader: ImageLoader
     
-    init(character: Character) {
-        self.character = character
-        self.imageLoader = ImageLoader(url: character.img)
-    }
+    @StateObject private var imageLoader = ImageLoader()
     
     var body: some View {
         VStack {
@@ -40,7 +36,7 @@ struct CharacterDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(character.name)
         .onAppear {
-            imageLoader.load()
+            imageLoader.loadImage(from: character.img)
         }
     }
 }

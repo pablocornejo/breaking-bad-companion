@@ -9,21 +9,11 @@ import SwiftUI
 import Combine
 
 class ImageLoader: ObservableObject {
-    @Published var image: UIImage?
-    
-    private let url: URL
+    @Published private(set) var image: UIImage?
     
     private var cancellable: AnyCancellable?
-
-    init(url: URL) {
-        self.url = url
-    }
-
-    deinit {
-        cancel()
-    }
     
-    func load() {
+    func loadImage(from url: URL) {
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .map(UIImage.init)
@@ -36,7 +26,7 @@ class ImageLoader: ObservableObject {
             }
     }
     
-    func cancel() {
+    deinit {
         cancellable?.cancel()
     }
 }
