@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct EpisodesListView: View {
-    @ObservedObject var viewModel: EpisodesViewModel
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.seasons) { season in
+                ForEach(appState.seasons) { season in
                     Section(header: Text("Season " + season.season)) {
                         ForEach(season.episodes) { episode in
                             NavigationLink(destination: EpisodeDetail(episode: episode)) {
@@ -36,6 +36,7 @@ struct EpisodesListView: View {
 
 struct EpisodesListView_Previews: PreviewProvider {
     static var previews: some View {
-        EpisodesListView(viewModel: .init())
+        EpisodesListView()
+            .environmentObject(AppState())
     }
 }

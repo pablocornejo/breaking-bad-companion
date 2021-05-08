@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharactersListView: View {
-    @ObservedObject var viewModel: CharactersViewModel
+    @EnvironmentObject var appState: AppState
     @State private var showingFilter: Bool = false
     
     var body: some View {
@@ -17,7 +17,7 @@ struct CharactersListView: View {
                 if showingFilter {
                     HStack {
                         Text("Season").font(.caption)
-                        Picker(selection: $viewModel.selectedSeason, label: Text("Season")) {
+                        Picker(selection: $appState.selectedSeason, label: Text("Season")) {
                             ForEach(0..<6) { index in
                                 Text(index == 0 ? "All" : "\(index)").tag(index)
                             }
@@ -26,7 +26,7 @@ struct CharactersListView: View {
                     }
                     .padding()
                 }
-                List(viewModel.characters) { character in
+                List(appState.characters) { character in
                     NavigationLink(destination: CharacterDetailView(character: character)) {
                         VStack(alignment: .leading) {
                             Text(character.name)
@@ -56,6 +56,7 @@ struct CharactersListView: View {
 
 struct CharactersView_Previews: PreviewProvider {
     static var previews: some View {
-        CharactersListView(viewModel: .init())
+        CharactersListView()
+            .environmentObject(AppState())
     }
 }

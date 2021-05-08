@@ -10,12 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            CharactersListView(viewModel: .init())
+            CharactersListView()
                 .tabItem {
                     Image(systemName: "person.3")
                     Text("Characters")
                 }
-            EpisodesListView(viewModel: .init())
+            EpisodesListView()
                 .tabItem {
                     Image(systemName: "person.2.square.stack")
                     Text("Episodes")
@@ -27,5 +27,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AppState())
     }
 }

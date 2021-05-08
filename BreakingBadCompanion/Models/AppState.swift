@@ -1,30 +1,54 @@
 //
-//  EpisodesViewModel.swift
+//  AppState.swift
 //  BreakingBadCompanion
 //
-//  Created by Pablo Cornejo on 5/6/21.
+//  Created by Pablo Cornejo on 5/8/21.
 //
 
 import Foundation
 import Combine
 
-class EpisodesViewModel: ObservableObject {
+class AppState: ObservableObject {
+    private var allCharacters: [Character] = []
     private var allEpisodes: [Episode] = [] {
         didSet {
             episodes = allEpisodes
             seasons = makeSeasons(from: episodes, for: currentSeries)
         }
     }
+    @Published var characters: [Character] = []
+    @Published var selectedSeason: Int = 0 {
+        didSet {
+            characters = allCharacters.filter { selectedSeason == 0 || $0.appearance.contains(selectedSeason) }
+        }
+    }
     @Published var episodes: [Episode] = []
     @Published var seasons: [Season] = []
     
     private let currentSeries: String = "Breaking Bad"
-    
     private let network: NetworkManager = .init()
     private var cancellables: Set<AnyCancellable> = .init()
     
     init() {
+        refreshCharacters()
         fetchEpisodes()
+    }
+    
+    func refreshCharacters() {
+        let url = URL(string: "https://www.breakingbadapi.com/api/characters/")!
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        network
+            .getDecodable(from: url, with: decoder)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                print("***", completion)
+            } receiveValue: { (characters: [Character]) in
+                self.allCharacters = characters
+                self.selectedSeason = 0
+            }
+            .store(in: &cancellables)
     }
     
     func fetchEpisodes() {
