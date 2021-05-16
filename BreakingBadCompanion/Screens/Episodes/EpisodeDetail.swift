@@ -12,10 +12,15 @@ struct EpisodeDetail: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(episode.title).font(.headline)
-            Text("Season \(episode.season), episode \(episode.episode)")
-            Text("Aired on \(episode.airDate)")
-            Text(episode.characters.joined(separator: ", "))
+            VStack(alignment: .leading) {
+                Text(episode.title).font(.headline)
+                Text("Season \(episode.season), episode \(episode.episode)")
+                Text("Aired on \(episode.airDate)")
+            }
+            .padding()
+            List(episode.characters, id: \.self) { character in
+                NavigationLink(character, destination: Text(character))
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(episode.title)
