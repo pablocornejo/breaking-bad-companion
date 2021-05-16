@@ -29,6 +29,7 @@ struct EpisodesListView: View {
                     }
                 }
             }
+            .listStyle(SidebarListStyle())
             .navigationTitle("Episodes")
         }
     }
